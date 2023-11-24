@@ -20,12 +20,12 @@ args = parser.parse_args()
 print('test: trying connect to %s:%s' % (args.host, args.port))
 
 client = socket.create_connection((args.host, args.port))
-client.sendall(msgpack.packb(['status'], use_bin_type=True))
+client.sendall(msgpack.packb(['status']))
 
 print("test: sent request to server [status]")
 print("test: reading response...")
 
-unpacker = Unpacker(encoding='utf-8')
+unpacker = Unpacker()
 
 while True:
     data = client.recv(4096)

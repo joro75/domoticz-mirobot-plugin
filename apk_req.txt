@@ -1,3 +1,0 @@
-apk add py3-gevent
-apk add py3-msgpack
-

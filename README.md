@@ -1,32 +1,32 @@
-
 # Xiaomi Mi Robot Vacuum - Domoticz Python plugin
+[![PyPI pyversions](https://img.shields.io/badge/python-3.8-blue.svg)]()
 
-*This plugin uses the [Python-miio](https://github.com/rytilahti/python-miio) library.*
+This plugin uses the [Python-miio](https://github.com/rytilahti/python-miio) library
+to control the Xiaomi Mi Robot Vacuum.
 
-*[Python-miio] require Python 3.5*
-
-*See this [link](https://www.domoticz.com/wiki/Using_Python_plugins) for more information on the Domoticz plugins.*
+See this [link](https://www.domoticz.com/wiki/Using_Python_plugins) for more information on
+how to use Python plugins in Domoticz.
 
 ## How it works
 
-Plugin provides: Status, Control, Fan Level, Battery, Care status devices, Zone Control, Target Control
+Plugin provides: Status, Control, Fan Level, Care status devices, Zone Control, Target Control 
 
-**Status**: show current status in readable layout of switch. Status updates by polls 
-(interval) and when you click Control device (for instant status change). since ```0.1.5``` Battery Level added to status
+**Status**: show current status and battery level in readable layout of switch. Status updates by polls 
+(interval) and when you click Control device (for instant status change).
 
 **Control**: for sending commands.
 
 **Fan Level**: for adjusting suction power. (MiHome app related: Quiet=38, Balanced=60, Turbo=77, Max=90)
 
-**Battery**: since ```0.1.5``` removed
-
-**Care**: since ```0.1.0``` new 5 devices (care status + reset tool)
+**Care**: 5 devices for the care status, and a care reset tool.
 
 **Zone Control**
 
 **Target Control** 
 
 ## Installation
+
+Python >= 3.8 is required.
 
 Before installation plugin check the `python3`, `python3-dev`, `pip3` is installed for Domoticz plugin system:
 
@@ -36,21 +36,16 @@ Make sure you have libffi and openssl headers installed, you can do this on Debi
 
 ```sudo apt-get install libffi-dev libssl-dev```.
 
-Also do note that the setuptools version is too old for installing some requirements, so before trying to install this package you should update the setuptools with:
-
-```sudo pip3 install -U setuptools```.
-
-
 Then go to plugins folder and clone repository:
 ```
 cd domoticz/plugins
-git clone https://github.com/avgays/domoticz-mirobot-plugin.git xiaomi-mirobot
+git clone https://github.com/joro75/domoticz-mirobot-plugin.git xiaomi-mirobot
 cd xiaomi-mirobot
 mv ~/domoticz/plugins/xiaomi-mirobot/miio/ ~/
 
 # and then:
-sudo pip3 install -r pip_req.txt 
-# or sudo pip3 install gevent msgpack-python python-miio
+sudo pip3 install -r requirements.txt 
+# or sudo pip3 install gevent msgpack python-miio setuptools
 ```
 
 Need some prepare of **MIIO Server** to run as service:
@@ -71,7 +66,7 @@ DAEMON_ARGS="$DAEMON_ARGS --host 127.0.0.1 --port 22222"
 #
 ```
 
-2. Check path to python3 ```which python3```. By default is ```/usr/bin/python3```. 
+2. Check path to python3 (```which python3```). By default is ```/usr/bin/python3```. 
 If your path different than default, update miio_server.py first line with your path.
 ```
 #!/usr/bin/python3
@@ -150,7 +145,6 @@ sudo service domoticz.sh restart
 ```
 
 ## Screenshots
-
 
 ![RR_Status](https://user-images.githubusercontent.com/25368137/54459874-f98e2200-4778-11e9-8d3f-ad9770937111.jpg)
 ![control_unit](https://user-images.githubusercontent.com/93999/29568435-13645e10-8759-11e7-92d8-5fe130912c78.png)

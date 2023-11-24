@@ -1,3 +1,4 @@
 gevent
 msgpack
 python-miio
+setuptools

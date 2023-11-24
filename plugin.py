@@ -141,7 +141,7 @@ class BasePlugin:
         self.subHost = None
         self.subPort = None
         self.tcpConn = None
-        self.unpacker = msgpack.Unpacker(encoding='utf-8')
+        self.unpacker = msgpack.Unpacker()
 
     def onStart(self):
         if Parameters['Mode4'] == 'Debug':
@@ -498,7 +498,7 @@ class BasePlugin:
         cmd = [cmd_name]
         if cmd_value: cmd.append(cmd_value)
         try:
-            self.tcpConn.Send(msgpack.packb(cmd, use_bin_type=True))
+            self.tcpConn.Send(msgpack.packb(cmd))
             return True
         except msgpack.PackException as e:
             Domoticz.Error('Pack exception [%s]' % str(e))

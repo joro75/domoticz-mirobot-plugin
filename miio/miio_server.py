@@ -64,7 +64,7 @@ def socket_incoming_connection(socket, address):
 
     sockets[address] = socket
 
-    unpacker = Unpacker(encoding='utf-8')
+    unpacker = Unpacker()
     while True:
         data = socket.recv(4096)
 
@@ -85,7 +85,7 @@ def socket_msg_sender(sockets, q):
     while True:
         msg = q.get()
         if isinstance(msg, OutMsg) and msg.to in sockets:
-            sockets[msg.to].sendall(msgpack.packb(msg, use_bin_type=True))
+            sockets[msg.to].sendall(msgpack.packb(msg))
             logger.debug('send reply %s', msg.to)
 
 

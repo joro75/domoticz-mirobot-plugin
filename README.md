@@ -158,9 +158,12 @@ sudo service domoticz.sh restart
 ![care2](https://user-images.githubusercontent.com/93999/32418538-08ef7e10-c27d-11e7-9ff8-8dfff1c20377.png)
 
 
-### Device token
+## Device token
 
 The device token is required to be set in the miio_server.sh script, which
 is the identification of the Xiaomi Mi vacuum. Check the [instruction](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor)
 on how to get access to the correct device token.
 
+## Credits
+
+Originally created by: [mrin/domoticz-mirobot-plugin](https://github.com/mrin/domoticz-mirobot-plugin)
